@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Modal, Form, Input, Button, Row } from "antd";
+import { typeNewUser } from "../tools/dataType";
+import axios from "axios";
 
 const Login = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [form]=Form.useForm();
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -12,9 +15,32 @@ const Login = () => {
     setIsModalVisible(false);
   };
 
-  const onFinish = (values: any) => {
-    console.log("Success:", values);
+  // const onFinish = (values: any) => {
+  //   console.log("Success:", values);
+  // };
+
+  const LoginHandler = async (data:typeNewUser) => {
+    try {
+
+      const res = await axios.post(
+        "http://localhost:4000/api/users",
+        JSON.stringify(data),
+        { headers: { "Content-Type": "application/json" } }
+      );
+      if(res){
+        Modal.success({
+          content: 'save successfully!',
+        });
+        form.resetFields();
+        setIsModalVisible(false);
+      }
+    } catch (error) {
+      Modal.error({
+        content: 'duplicate information!',
+      });
+    }
   };
+
 
   return (
     <>
@@ -30,15 +56,16 @@ const Login = () => {
         className="login-md"
         visible={isModalVisible}
         footer={null}
-        title="เข้าสู่ระบบ"
+        title="Login"
         onCancel={handleCancel}
       >
         <Form
           name="basic"
         //   labelCol={{ span: 8 }}
         //   wrapperCol={{ span: 16 }}
-          initialValues={{ remember: true }}
-          onFinish={onFinish}
+        //  initialValues={{ remember: true }}
+          onFinish={LoginHandler}
+          form={form}
         >
           <Form.Item
           labelCol={{ span: 5 }}
