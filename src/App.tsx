@@ -5,6 +5,7 @@ import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
 import Login from "./components/Login";
 import Register from "./components/Register";
 import DisplayMap from "./components/DisplayMap";
+import axios from "axios";
 
 const { Header, Content } = Layout;
 
@@ -15,7 +16,7 @@ const App = () => {
         <Layout className="site-layout">
           <Header
             className="site-layout-background"           
-            style={{ padding: 0, backgroundColor: "#99D6EA" }}
+            style={{ padding: 0, backgroundColor: "#BDD2B6" }}
           >
             <h2>Vaccine Map</h2>
             <Row>

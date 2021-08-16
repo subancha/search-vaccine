@@ -53,16 +53,38 @@
 }
 
 button.ant-btn.ant-btn-primary.login-btn{
-  background-color: #8EDD65;
+  background-color: #402218;
   border: none;
-  color: #3D441E;
+  color: #D7B19D;
   border-radius: 5px;
+  box-shadow: 3px 3px 6px #C68B59;
 }
 button.ant-btn.ant-btn-primary.register-btn{
-  background-color: #8EDD65;
+  background-color: #402218;
   border: none;
-  color: #3D441E;
+  color: #D7B19D;
   border-radius: 5px;
+  box-shadow: 3px 3px 6px #C68B59; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #402218 !important;
+  font-weight: 500 !important;
+}
+
+.ant-modal-header {
+  background: #BDD2B6 !important;
+}
+
+.ant-modal-title {
+  color: #402218 !important;
+}
+
+.ant-btn-primary {
+  background-color: #402218 !important;
+  border: none !important;
+  color: #D7B19D !important;
+  border-radius: 5px !important;
 }
 
 .ant-modal-header {
